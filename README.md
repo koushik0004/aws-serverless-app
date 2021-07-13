@@ -25,6 +25,8 @@ Install following VScode pluins for better developer experience
   1. Serverless IDE
   2. YAML
 
+### Rest Client setup
+Since this application API based app, thus we need to use Postman or any rest client app.
 ## What's included
 * Folder structure used consistently across our projects.
 * [serverless-pseudo-parameters plugin](https://www.npmjs.com/package/serverless-pseudo-parameters): Allows you to take advantage of CloudFormation Pseudo Parameters.
