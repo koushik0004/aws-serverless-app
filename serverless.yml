@@ -1,0 +1,25 @@
+service:
+  name: ecom-service
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  memorySize: 256
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+
+functions:
+  createEcomItem:
+    handler: src/handlers/createEcomItem.handler
+    events:
+      - http:
+          method: GET
+          path: /item
+          
+custom:
+  bundle:
+    linting: false
