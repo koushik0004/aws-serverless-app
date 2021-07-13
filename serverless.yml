@@ -17,7 +17,7 @@ functions:
     handler: src/handlers/createEcomItem.handler
     events:
       - http:
-          method: GET
+          method: POST
           path: /item
           
 custom:
