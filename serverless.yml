@@ -11,6 +11,29 @@ provider:
   memorySize: 256
   stage: ${opt:stage, 'dev'}
   region: us-east-1
+  environment:
+    ECOM_TABLE_NAME: ${self:custom.EcomItemsTable.name}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+      Resource:
+        - arn:aws:dynamodb:us-east-1:605482044366:table/EcomItemsTable
+        # - arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/EcomItemsTable
+
+resources:
+  Resources:
+    EcomItemsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: EcomItemsTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
 
 functions:
   createEcomItem:
@@ -21,5 +44,8 @@ functions:
           path: /item
           
 custom:
+  EcomItemsTable:
+    name: EcomItemsTable
   bundle:
     linting: false
+  
