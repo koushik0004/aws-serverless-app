@@ -2,8 +2,9 @@
 Basic serverless application in nodejs and DynamoDB
 
 ### App update info
-1. Added serverless.yml file for the deployment setup
-2. created a single file under src/handler/createEcomItem.js
+1. Updated serverless config file with DynamoDb resources table and POST request
+2. Added custom property into the yml file
+3. added data insert functionality into src/handler/createEcomItem.js
 
 ## Severless app deployment command
 ```
