@@ -2,9 +2,14 @@
 Basic serverless application in nodejs and DynamoDB
 
 ### App update info
-1. Updated serverless config file with DynamoDb resources table and POST request
-2. Added custom property into the yml file
-3. added data insert functionality into src/handler/createEcomItem.js
+1. Splitting serverless.yml file into readable multiple files
+2. Using intrinsic function getting resource table name and arn(Amazon resource name)[e.g. Ref, GetAtt]
+3. How to referring self yml file and use the properties.
+4. Creating ENVIRONMENT variable and using it in function.
+
+## Resources
+[AWS CloudFormation DynamoDB](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html)
+[CloudFormation Intrinsic function](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html)
 
 ## Severless app deployment command
 ```
