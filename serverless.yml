@@ -14,26 +14,12 @@ provider:
   environment:
     ECOM_TABLE_NAME: ${self:custom.EcomItemsTable.name}
   iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:PutItem
-      Resource:
-        - arn:aws:dynamodb:us-east-1:605482044366:table/EcomItemsTable
-        # - arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/EcomItemsTable
+    - ${file(iam/EcomItemsTableIAM.yml):EcomItemsTableIAM}
 
 resources:
   Resources:
     EcomItemsTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: EcomItemsTable
-        BillingMode: PAY_PER_REQUEST
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
+      ${file(resources/EcomItemsTable.yml):EcomItemsTable}
 
 functions:
   createEcomItem:
@@ -45,7 +31,8 @@ functions:
           
 custom:
   EcomItemsTable:
-    name: EcomItemsTable
+    name: !Ref EcomItemsTable
+    arn: !GetAtt EcomItemsTable.Arn
   bundle:
     linting: false
   

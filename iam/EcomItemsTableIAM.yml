@@ -1,0 +1,6 @@
+EcomItemsTableIAM:
+  Effect: Allow
+  Action:
+    - dynamodb:PutItem
+  Resource:
+    - ${self:custom.EcomItemsTable.arn}
