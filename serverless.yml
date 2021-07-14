@@ -28,7 +28,23 @@ functions:
       - http:
           method: POST
           path: /item
-          
+  getEcomItems:
+    handler: src/handlers/getEcomItems.handler
+    events:
+      - http:
+          method: GET
+          path: /items
+  # getItem:
+  #   handler: src/handlers/getEcomItem.handler
+  #   events:
+  #     - http:
+  #         method: GET
+  #         path: /item/{id}
+  processAuctions:
+    handler: src/handlers/processOrder.handler
+    # events:
+    #   - schedule: rate(1 minute)
+
 custom:
   EcomItemsTable:
     name: !Ref EcomItemsTable

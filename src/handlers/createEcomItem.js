@@ -1,5 +1,9 @@
 import {v4 as uuid} from 'uuid';
 import AWS from 'aws-sdk';
+import createErrors from 'http-errors';
+import {middyMiddlewares} from '../utils';
+
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 async function createEcomItem(event, context) {
   const {title, description} = event.body;
@@ -7,7 +11,7 @@ async function createEcomItem(event, context) {
   const endDate = new Date();
   endDate.setDate(startDate.getDay() + 1);
 
-  const auction = {
+  const ecomItem = {
     id: uuid(),
     title,
     description,
@@ -20,15 +24,20 @@ async function createEcomItem(event, context) {
     endingAt: endDate.toISOString()
   }
 
-  await dynamoDB.put({
-    TableName: process.env.ECOM_TABLE_NAME,
-    Item: auction,
-  }).promise();
+  try {
+    await dynamoDB.put({
+      TableName: process.env.ECOM_TABLE_NAME,
+      Item: ecomItem,
+    }).promise();
+  } catch(error) {
+    console.error(error);
+    throw new createErrors.InternalServerError(error);
+  }
 
   return {
     statusCode: 200,
-    body: JSON.stringify({auction})
+    body: JSON.stringify({ecomItem})
   };
 }
 
-export const handler = createEcomItem;
+export const handler = middyMiddlewares(createEcomItem);
