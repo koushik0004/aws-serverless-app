@@ -40,6 +40,10 @@ functions:
       - http:
           method: GET
           path: /item/{id}
+  processOrder:
+    handler: src/handlers/processOrder.handler
+    events:
+      - schedule: rate(1 minute)
 
 custom:
   EcomItemsTable:

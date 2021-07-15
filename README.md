@@ -2,11 +2,13 @@
 Basic serverless application in nodejs and DynamoDB
 
 ### App update info
-1. Updated serverless file with DynamoDB roles and permission.
-2. Updated new action handlers for lambda function
-3. Created other service function file for CRUD operation.
-4. User middy middlewares for code simplification in AWS Lambda. Middy is a very simple middleware engine that allows you to simplify your AWS Lambda code when using Node.js. [More details](https://github.com/middyjs/middy)
-5. user serverless plugin called serverless-pseudo-parameters, which offers yaml code simplification with serverless variables. 
+1. created one processOrder.js [cron job type] file
+2. updated serverless.yml file with new even
+
+
+sls logs -f <fileName> -t [will shown as tailing logs, provided function already invoked]
+sls logs -f <fileName> [will shown as all logs, provided function already invoked]
+sls invoke -f <fileName> -l [to invoke manually lambda function and see the logs]
 
 
 ## Severless app deployment command
