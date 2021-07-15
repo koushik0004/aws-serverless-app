@@ -34,7 +34,7 @@ functions:
       - http:
           method: GET
           path: /items
-  getItem:
+  getEcomItem:
     handler: src/handlers/getEcomItem.handler
     events:
       - http:
