@@ -35,7 +35,7 @@ async function createEcomItem(event, context) {
   }
 
   return {
-    statusCode: 200,
+    statusCode: 201,
     body: JSON.stringify({ecomItem})
   };
 }

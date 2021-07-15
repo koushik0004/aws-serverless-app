@@ -40,6 +40,12 @@ functions:
       - http:
           method: GET
           path: /item/{id}
+  updateEcomItem:
+    handler: src/handlers/updateEcomItem.handler
+    events:
+      - http:
+          method: PATCH
+          path: /item/{id}/update
 
 custom:
   EcomItemsTable:

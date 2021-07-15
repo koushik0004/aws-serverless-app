@@ -6,6 +6,10 @@ EcomItemsTable:
     AttributeDefinitions:
       - AttributeName: id
         AttributeType: S
+      - AttributeName: status
+        AttributeType: S
+      - AttributeName: endingAt
+        AttributeType: S
     KeySchema:
       - AttributeName: id
         KeyType: HASH
