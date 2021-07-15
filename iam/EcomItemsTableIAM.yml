@@ -2,5 +2,9 @@ EcomItemsTableIAM:
   Effect: Allow
   Action:
     - dynamodb:PutItem
+    - dynamodb:Scan
+    - dynamodb:GetItem
+    - dynamodb:UpdateItem
+    - dynamoDB:Query
   Resource:
     - ${self:custom.EcomItemsTable.arn}
