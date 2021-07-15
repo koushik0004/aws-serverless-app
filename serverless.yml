@@ -34,16 +34,12 @@ functions:
       - http:
           method: GET
           path: /items
-  # getItem:
-  #   handler: src/handlers/getEcomItem.handler
-  #   events:
-  #     - http:
-  #         method: GET
-  #         path: /item/{id}
-  processAuctions:
-    handler: src/handlers/processOrder.handler
-    # events:
-    #   - schedule: rate(1 minute)
+  getItem:
+    handler: src/handlers/getEcomItem.handler
+    events:
+      - http:
+          method: GET
+          path: /item/{id}
 
 custom:
   EcomItemsTable:
