@@ -6,7 +6,7 @@ async function createEcomItem(event, context) {
   const endDate = new Date();
   endDate.setDate(startDate.getDay() + 1);
 
-  const item = {
+  const ecomItem = {
     id: uuid(),
     title,
     description,
@@ -20,7 +20,7 @@ async function createEcomItem(event, context) {
   }
   return {
     statusCode: 200,
-    body: JSON.stringify({item})
+    body: JSON.stringify({ecomItem})
   };
 }
 
