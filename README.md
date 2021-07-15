@@ -5,10 +5,11 @@ Basic serverless application in nodejs and DynamoDB
 1. created one processOrder.js [cron job type] file
 2. updated serverless.yml file with new even
 
-
-sls logs -f <fileName> -t [will shown as tailing logs, provided function already invoked]
-sls logs -f <fileName> [will shown as all logs, provided function already invoked]
-sls invoke -f <fileName> -l [to invoke manually lambda function and see the logs]
+```
+$ sls logs -f <fileName> -t [will shown as tailing logs, provided function already invoked]
+$ sls logs -f <fileName> [will shown as all logs, provided function already invoked]
+$ sls invoke -f <fileName> -l [to invoke manually lambda function and see the logs]
+```
 
 
 ## Severless app deployment command
